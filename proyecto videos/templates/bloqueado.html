@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Bloqueado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container error-container">
+        <h2 class="bloqueado-titulo">Acceso Denegado</h2>
+        <p>Lo sentimos, <strong>{{ nombre }} {{ apellido }}</strong>.</p>
+        <p class="alerta-texto">El sistema ha detectado que ya registraste tu participación en esta actividad.</p>
+        <p>Solo se permite visualizar y reproducir los videos una única vez.</p>
+        <a href="/" class="btn-ingresar btn-volver">Volver al Inicio</a>
+    </div>
+</body>
+</html>
