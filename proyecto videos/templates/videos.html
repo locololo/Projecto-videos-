@@ -3,58 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad - Visualización de Videos</title>
+    <title>{{ video_info.titulo }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="videos-container">
 
-        <!-- CABECERA -->
         <header class="videos-header">
-            <h2>Visualización Controlada de Videos</h2>
-            <p>Por favor, observa con atención cada video. No podrás pausar, adelantar ni retroceder.</p>
+            <h2>{{ video_info.titulo }}</h2>
+            <p>Por favor, observa el video con atención. No podrás pausar, adelantar ni retroceder.</p>
         </header>
 
-        <!-- CARTEL FINAL (Se muestra únicamente al terminar el último video) -->
+        <!-- CARTEL FINAL (Se muestra únicamente al finalizar el video de 5 minutos) -->
         <div id="cartel-final" class="cartel-overlay hidden">
             <div class="cartel-contenido">
                 <div class="icono-alerta">📋</div>
-                <h3>¡Actividad Completada!</h3>
-                <p class="instruccion-principal">Has completado la visualización de todos los videos.<br>Por favor, <strong>vuelve a la pestaña del formulario</strong> para continuar respondiendo las preguntas.</p>
+                <h3>¡Video Completado!</h3>
+                <p class="instruccion-principal">Has finalizado la visualización del video.<br>Por favor, <strong>vuelve a la pestaña del formulario</strong> para continuar respondiendo las preguntas.</p>
             </div>
         </div>
 
-        <!-- REPRODUCTORES DE VIDEO -->
+        <!-- REPRODUCTOR ÚNICO DE VIDEO -->
         <main class="videos-flow">
-
-            <!-- BLOQUE 1: VIDEO BUENO (Visible al iniciar con botón interactivo obligatorio) -->
-            <div id="bloque-video-1" class="video-block">
-                <div class="video-badge badge-bueno">Fase 1: Video A</div>
+            <div id="bloque-video-unico" class="video-block">
+                <div class="video-badge {{ video_info.clase_badge }}">{{ video_info.badge }}</div>
                 <div class="video-wrapper">
-                    <!-- Único botón interactivo necesario para desbloquear el sonido y permisos del navegador -->
-                    <div id="capa-inicio-1" class="capa-inicio">
-                        <button class="btn-play-gigante">▶ COMENZAR VIDEO A</button>
+                    <!-- Botón de inicio interactivo para habilitar el reproductor en el navegador -->
+                    <div id="capa-inicio" class="capa-inicio">
+                        <button class="btn-play-gigante">▶ COMENZAR VIDEO</button>
                     </div>
-                    <video id="video-1" class="reproductor-video" src="https://www.w3schools.com/html/mov_bbb.mp4" preload="auto"></video>
+                    <video id="video-principal" class="reproductor-video" src="{{ video_info.url }}" preload="auto"></video>
                 </div>
             </div>
-
-            <!-- BLOQUE 2: VIDEO NEUTRO (Se reproduce solo) -->
-            <div id="bloque-video-2" class="video-block hidden">
-                <div class="video-badge badge-neutro">Fase 2: Video B</div>
-                <div class="video-wrapper">
-                    <video id="video-2" class="reproductor-video" src="https://www.w3schools.com/html/movie.mp4" preload="auto"></video>
-                </div>
-            </div>
-
-            <!-- BLOQUE 3: VIDEO MALO (Se reproduce solo) -->
-            <div id="bloque-video-3" class="video-block hidden">
-                <div class="video-badge badge-malo">Fase 3: Video C</div>
-                <div class="video-wrapper">
-                    <video id="video-3" class="reproductor-video" src="https://www.w3schools.com/html/mov_bbb.mp4" preload="auto"></video>
-                </div>
-            </div>
-
         </main>
     </div>
 
