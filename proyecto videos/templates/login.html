@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido - Acceso a Videos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Ingreso a la Actividad</h2>
+        <p>Escribe tu nombre y apellido para comenzar a ver los videos.</p>
+
+        <!-- Mensajes de advertencia o error de Flask -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p class="error-msg">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login_video', tipo_video=tipo) }}">
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan">
+            </div>
+
+            <div class="input-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required placeholder="Ej: Pérez">
+            </div>
+
+            <button type="submit" class="btn-ingresar">INGRESAR</button>
+        </form>
+    </div>
+</body>
+</html>

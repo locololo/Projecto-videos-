@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video_info.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="videos-container">
+
+        <header class="videos-header">
+            <h2>{{ video_info.titulo }}</h2>
+            <p>Por favor, observa el video con atención. No podrás pausar, adelantar ni retroceder.</p>
+        </header>
+
+        <!-- CARTEL FINAL (Se muestra únicamente al finalizar el video de 5 minutos) -->
+        <div id="cartel-final" class="cartel-overlay hidden">
+            <div class="cartel-contenido">
+                <div class="icono-alerta">📋</div>
+                <h3>¡Video Completado!</h3>
+                <p class="instruccion-principal">Has finalizado la visualización del video.<br>Por favor, <strong>vuelve a la pestaña del formulario</strong> para continuar respondiendo las preguntas.</p>
+            </div>
+        </div>
+
+        <!-- REPRODUCTOR ÚNICO DE VIDEO -->
+        <main class="videos-flow">
+            <div id="bloque-video-unico" class="video-block">
+                <div class="video-badge {{ video_info.clase_badge }}">{{ video_info.badge }}</div>
+                <div class="video-wrapper">
+                    <!-- Botón de inicio interactivo para habilitar el reproductor en el navegador -->
+                    <div id="capa-inicio" class="capa-inicio">
+                        <button class="btn-play-gigante">▶ COMENZAR VIDEO</button>
+                    </div>
+                    <video id="video-principal" class="reproductor-video" src="{{ video_info.url }}" preload="auto"></video>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
