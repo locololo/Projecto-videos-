@@ -37,25 +37,25 @@ def get_db_connection():
 VIDEOS = {
     "video1": {
         "titulo": "Evaluación - Video 1",
-        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "url": "https://pub-72bc7fabaecc4adea8d80b642c12d19d.r2.dev/Video%20positivo.mp4",
         "badge": "Fase 1",
         "clase_badge": "badge-general"
     },
     "video2": {
         "titulo": "Evaluación - Video 2",
-        "url": "https://archive.org/download/videos2_20260911/VIDEOS%20NEUTROS.mp4",
+        "url": "https://pub-72bc7fabaecc4adea8d80b642c12d19d.r2.dev/Video%20neutro.mp4",
         "badge": "Fase 2",
         "clase_badge": "badge-general"
     },
     "video3": {
         "titulo": "Evaluación - Video 3",
-        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "url": "https://pub-72bc7fabaecc4adea8d80b642c12d19d.r2.dev/Video%20negativo.mp4",
         "badge": "Fase 3",
         "clase_badge": "badge-general"
     },
     "palabras": {
         "titulo": "Evaluación - Palabras",
-        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "url": "https://pub-72bc7fabaecc4adea8d80b642c12d19d.r2.dev/Palabras.mp4",
         "badge": "Fase Palabras",
         "clase_badge": "badge-general"
     }
